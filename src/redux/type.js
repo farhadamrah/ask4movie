@@ -1,0 +1,3 @@
+// Auth
+export const AUTH_USER_LOGGED_IN = 'AUTH_USER_LOGGED_IN';
+export const AUTH_USER_LOGGED_OUT = 'AUTH_USER_LOGGED_OUT';

@@ -1,0 +1,13 @@
+.form-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    .label {
+        color: #cbcbcb;
+        font-weight: 500;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+}
