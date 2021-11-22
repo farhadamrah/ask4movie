@@ -4,10 +4,13 @@ import styles from './Layout.module.scss';
 
 const Layout = props => {
     return (
-        <div className={styles.layout}>
-            <Header />
-            <main className={styles.main}>{props.children}</main>
-        </div>
+        <>
+            <div className={styles.layout}>
+                <div className={styles.background} />
+                <Header />
+                <main className={styles.main}>{props.children}</main>
+            </div>
+        </>
     );
 };
 

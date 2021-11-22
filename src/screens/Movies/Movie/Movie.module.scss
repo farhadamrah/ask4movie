@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+
+    .description {
+        display: flex;
+        justify-content: space-between;
+
+        img {
+            flex: 0.5;
+            height: 15rem;
+            margin-right: 0.5rem;
+        }
+
+        .categories {
+            flex: 0.5;
+
+            p {
+                margin-bottom: 0.2rem;
+
+                .keys {
+                    font-size: 1.15rem;
+                    font-weight: 700;
+                    margin-right: 0.5rem;
+                }
+
+                .values {
+                    font-size: 1.05rem;
+                    font-weight: 500;
+                    color: #d7d7d7;
+                }
+            }
+        }
+    }
+
+    .overview {
+        font-size: 1.1rem;
+        text-align: justify;
+        word-break: break-all;
+        margin: 1rem 0;
+
+        span {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+    }
+}

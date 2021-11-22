@@ -1,0 +1,21 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.62);
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+
+    .item {
+        color: red;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .active {
+        background-color: red;
+        color: black;
+        padding: 0 0.5rem;
+        border-radius: 0.5rem;
+    }
+}

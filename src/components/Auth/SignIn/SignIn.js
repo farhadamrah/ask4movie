@@ -26,7 +26,7 @@ const SignIn = props => {
     const onFormSubmit = async values => {
         const user = await dispatch(setUserLoggedIn(values));
 
-        user && history.push(ROUTES.moviesList.path);
+        user && history.push(ROUTES.allMovies.path);
     };
 
     console.log(select);
@@ -44,7 +44,7 @@ const SignIn = props => {
                         <Input.Password placeholder={'Enter your password'} {...register('password')} />
                     </FormItem>
                     <div className={styles.forgot}>Forgot password?</div>
-                    <Button customStyle={{ width: '100%' }}>Sign In</Button>
+                    <Button className={styles.button}>Sign In</Button>
                 </form>
             </Card>
         </div>

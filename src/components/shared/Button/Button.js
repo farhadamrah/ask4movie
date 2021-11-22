@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 
 import styles from './Button.module.scss';
 import { BUTTON_TYPES } from '../../../config/constants';
+import classnames from 'classnames';
 
 const Button = props => {
-    const { children, type, customStyle, ...buttonProps } = props;
+    const { children, type, className, ...buttonProps } = props;
 
     const buttonType = type ? type : 'primary';
 
@@ -14,7 +15,7 @@ const Button = props => {
     };
 
     return (
-        <button type={buttonType} style={customStyle} className={BUTTON_STYLES[buttonType]} {...buttonProps}>
+        <button type={buttonType} className={classnames(BUTTON_STYLES[buttonType], className)} {...buttonProps}>
             {children}
         </button>
     );

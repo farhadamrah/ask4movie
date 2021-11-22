@@ -6,7 +6,7 @@ import Input from '../Input';
 
 const SearchInput = forwardRef((props, ref) => {
     return (
-        <div>
+        <div className={styles.input}>
             <Input ref={ref} {...props} />
             <span className={styles.search}>search</span>
         </div>

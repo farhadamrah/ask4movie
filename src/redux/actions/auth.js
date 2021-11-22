@@ -1,4 +1,4 @@
-import * as TYPES from '../type';
+import * as TYPES from '../types';
 
 export const setUserLoggedIn = user => ({
     type: TYPES.AUTH_USER_LOGGED_IN,

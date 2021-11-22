@@ -22,7 +22,7 @@ const SignUp = props => {
                         <Input.Password placeholder={'Enter your password again'} />
                     </FormItem>
 
-                    <Button customStyle={{ width: '100%' }}>Sign Up</Button>
+                    <Button className={styles.button}>Sign Up</Button>
                 </form>
             </Card>
         </div>
