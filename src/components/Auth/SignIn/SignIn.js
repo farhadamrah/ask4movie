@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import styles from './SignIn.module.scss';
 import { ROUTES } from '../../../config/constants';
-import { setUserLoggedIn } from '../../../redux/actions/auth';
+import { setUserLoggedIn, userSignedIn, userSignedUp } from '../../../redux/actions/auth';
 import Input from '../../shared/Input/Input';
 import FormItem from '../../shared/Form/FormItem/FormItem';
 import Button from '../../shared/Button/Button';
@@ -21,27 +21,36 @@ const SignIn = props => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const select = useSelector(state => state.auth.user);
-
     const onFormSubmit = async values => {
-        const user = await dispatch(setUserLoggedIn(values));
+        const user = await dispatch(userSignedIn(values));
 
-        user && history.push(ROUTES.allMovies.path);
+        if (user) {
+            history.push(ROUTES.allMovies.path);
+        } else {
+            console.log(errors);
+        }
     };
-
-    console.log(select);
 
     return (
         <div className={styles.container}>
-            <Card>
+            <Card className={styles.card}>
                 <h2 className={styles.title}>Sign In</h2>
 
                 <form onSubmit={handleSubmit(onFormSubmit)}>
-                    <FormItem label={'Email'}>
-                        <Input type={'email'} placeholder={'Enter your email address'} {...register('email')} />
+                    <FormItem label={'Email'} hasValidationError={errors} helpMessage={errors.email?.message}>
+                        <Input
+                            type={'email'}
+                            placeholder={'Enter your email address'}
+                            {...register('email', { required: 'Email address is required' })}
+                        />
                     </FormItem>
-                    <FormItem label={'Password'}>
-                        <Input.Password placeholder={'Enter your password'} {...register('password')} />
+                    <FormItem label={'Password'} hasValidationError={errors} helpMessage={errors.password?.message}>
+                        <Input.Password
+                            placeholder={'Enter your password'}
+                            {...register('password', {
+                                required: 'Password is required',
+                            })}
+                        />
                     </FormItem>
                     <div className={styles.forgot}>Forgot password?</div>
                     <Button className={styles.button}>Sign In</Button>

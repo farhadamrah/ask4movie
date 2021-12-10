@@ -1,8 +1,21 @@
+@import 'src/assets/styles/base/variables';
+
 .container {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+
+    .card {
+        width: 100%;
+
+        @media (min-width: $breakpoint-sm) {
+            & {
+                width: 30rem;
+            }
+        }
+    }
 
     .title {
         text-align: center;

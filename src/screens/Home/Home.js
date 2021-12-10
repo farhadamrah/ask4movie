@@ -11,7 +11,7 @@ const Home = props => {
             <span className={styles.subtitle}>Everything you are looking for is here.</span>
             <span className={styles['invite-text']}>Are you ready?</span>
             <Link to={ROUTES.signUp.path}>
-                <Button type={'primary'} customStyle={{ width: '200px', fontSize: '1.05rem' }}>
+                <Button type={'primary'} className={styles.button}>
                     Join us
                 </Button>
             </Link>

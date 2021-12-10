@@ -8,9 +8,6 @@ export const ROUTES = {
     signUp: {
         path: '/sign-up',
     },
-    // moviesList: {
-    //     path: '/app',
-    // },
     allMovies: {
         path: '/app/all-movies',
     },
@@ -28,6 +25,12 @@ export const ROUTES = {
 export const BUTTON_TYPES = {
     primary: 'primary',
     link: 'link',
+};
+
+export const MESSAGE_TYPES = {
+    success: 'success',
+    warning: 'warning',
+    error: 'error',
 };
 
 export const IMAGE_URL = {

@@ -1,0 +1,35 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 8%;
+    z-index: 9999;
+
+    .content {
+        border-radius: 0.2rem;
+        border: 1px solid;
+        border-left-width: 8px;
+        padding: 1.5rem 1rem;
+        text-align: center;
+    }
+
+    .error {
+        background-color: #fddada;
+        border-color: #f10303;
+        color: #f10202;
+    }
+
+    .success {
+        background-color: #d3ffd3;
+        border-color: green;
+        color: green;
+    }
+
+    .warning {
+        background-color: #fae3bf;
+        border-color: #f19b02;
+        color: #e09201;
+    }
+}

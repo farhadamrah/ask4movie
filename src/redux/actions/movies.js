@@ -13,6 +13,8 @@ export const removeMovieFromWatchlist = id => ({ type: TYPES.REMOVE_MOVIE_FROM_W
 
 export const setSearchedMovie = movie => ({ type: TYPES.GET_SEARCHED_MOVIE, payload: movie });
 
+export const removeSearchedMovies = () => ({ type: TYPES.REMOVE_SEARCHED_MOVIES });
+
 export const getAllMoviesList = () => async dispatch => {
     try {
         const response = await MoviesService.getAllMovies();

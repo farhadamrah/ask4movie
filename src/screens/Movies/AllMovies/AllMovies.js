@@ -12,8 +12,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faEye, faEyeSlash, faHeart, faList } from '@fortawesome/free-solid-svg-icons';
 
 const AllMovies = props => {
-    const [addIsEnable, setAddIsEnable] = useState(true);
-
     const dispatch = useDispatch();
 
     const allMovies = useSelector(state => state.movies.allMovies);
@@ -24,14 +22,7 @@ const AllMovies = props => {
     }, []);
 
     const addMovieHandler = selectedMovie => {
-        // const addedMovie = watchlist.find(movie => movie.id === selectedMovie.id);
         dispatch(addMovieToWatchlist(selectedMovie));
-
-        // if (addedMovie) {
-        //     setAddIsEnable(false);
-        // } else {
-        //     setAddIsEnable(false);
-        // }
     };
 
     return (

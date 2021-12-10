@@ -36,6 +36,10 @@ const movies = (state = initialState, action) => {
             return { ...state, searchedMovie: action.payload };
         }
 
+        case TYPES.REMOVE_SEARCHED_MOVIES: {
+            return { ...state, searchedMovie: [] };
+        }
+
         default:
             return state;
     }

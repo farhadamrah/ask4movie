@@ -1,33 +1,48 @@
 import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 
 import { ROUTES } from '../../config/constants';
 import styles from './Header.module.scss';
 import Button from '../shared/Button/Button';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { userSignedOut } from '../../redux/actions/auth';
+import { isPrivateRoute } from '../../utils/route';
 
 const Header = props => {
     const { pathname } = useLocation();
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
-    let buttonName;
+    const redirect = pathname === ROUTES.signIn.path ? ROUTES.signUp.path : ROUTES.signIn.path;
 
-    const link = pathname === ROUTES.signIn.path ? ROUTES.signUp.path : ROUTES.signIn.path;
+    const buttonName = pathname === ROUTES.signIn.path ? 'Sign Up' : 'Sign In';
 
-    !isAuthenticated
-        ? (buttonName = pathname === ROUTES.signIn.path ? 'Sign Up' : 'Sign In')
-        : (buttonName = 'Sign Out');
+    const onSignOutClick = () => {
+        dispatch(userSignedOut());
+
+        history.push(ROUTES.signIn.path);
+    };
+
+    console.log(isAuthenticated);
 
     return (
         <header className={styles.header}>
             <div className={styles['header__container']}>
-                <Link to={ROUTES.home.path}>
+                <Link to={isPrivateRoute(pathname) ? ROUTES.allMovies.path : ROUTES.home.path}>
                     <span className={styles.logo}>ASK4MOVIE</span>
                 </Link>
-                <Link to={link}>
-                    <Button type={'primary'}>{buttonName}</Button>
-                </Link>
+
+                {!isPrivateRoute(pathname) ? (
+                    <Link to={redirect}>
+                        <Button type={'primary'}>{buttonName}</Button>
+                    </Link>
+                ) : (
+                    <Button type={'primary'} onClick={onSignOutClick}>
+                        Sign Out
+                    </Button>
+                )}
             </div>
         </header>
     );
